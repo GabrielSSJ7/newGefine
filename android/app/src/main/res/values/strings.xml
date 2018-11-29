@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Gefine</string>
+    <string name="facebook_app_id">761420394224999</string> <string name="fb_login_protocol_scheme">fb761420394224999</string>
+
+</resources>
