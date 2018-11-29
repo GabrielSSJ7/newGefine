@@ -14,44 +14,7 @@ import EsqueciSenha from "./components/EsqueciSenha";
 var backButtonPressedOnceToExit = false;
 
 export default class Routes extends Component {
-  componentDidMount() {
-    backButtonPressedOnceToExit = false
-    BackHandler.addEventListener(
-      "hardwareBackPress",
-      this.onBackPress.bind(this)
-    );
-  }
-
-  componentWillUnmount() {
-    BackHandler.removeEventListener(
-      "hardwareBackPress",
-      this.onBackPress.bind(this)
-    );
-  }
-
-  onBackPress() {
-    console.log("BackPress", backButtonPressedOnceToExit)
-    if (backButtonPressedOnceToExit) {
-      BackHandler.exitApp();
-    } else {
-      if (Actions.currentScene !== "principal" && Actions.currentScene !== "login") {
-        Actions.pop();
-        return true;
-      } else {
-    
-        ToastAndroid.show(
-          "Aperte novamente para sair.",
-          ToastAndroid.SHORT
-        );
-        backButtonPressedOnceToExit = true;
-        //setting timeout is optional
-        // setTimeout(() => {
-        //   backButtonPressedOnceToExit = false;
-        // }, 1000);
-        return true;
-      }
-    }
-  }
+  
 
 
   render() {
@@ -59,7 +22,7 @@ export default class Routes extends Component {
       <Router
         navigationBarStyle={{ backgroundColor: "#50c4eb" }}
         titleStyle={{ color: "#fff" }}
-        backAndroidHandler={this.onBackPress}
+  
       >
         <Stack>
           <Scene
